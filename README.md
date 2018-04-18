@@ -1,16 +1,21 @@
 ## CryptoCompare
 
-This is a project built for Learn Code Utrecht.
+This is a project built for [Learn Code Utrecht](https://github.com/learncodeutrecht/LearnCodeUtrecht).
 
 For questions on Front End, ask [Susan](https://github.com/sepuckett86/).
 
 To run on your local computer:
+
 Install [Node](https://nodejs.org/en/).
+
 Clone this repository.
-Navigate to main directory in your CLI.
-First install necessary dependencies:
+
+Navigate to main directory `CryptoCurrencyFrontend` in your CLI.
+
+Install necessary dependencies:
 `npm install`
-Then run a development build:
+
+Run a development build:
 `npm start`
 
 ## All content below is auto-generated upon building a new React App.
