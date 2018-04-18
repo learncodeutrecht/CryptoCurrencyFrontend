@@ -16,7 +16,7 @@ export class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div className="App-title">CCompare</div>
+          <div className="App-title">CryptoCompare</div>
         </header>
         <p className="App-intro">
           <br />
