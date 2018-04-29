@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { App } from '../Components/App/App';
+import Crypto from '../Utils/Crypto';
 
 class AppContainer extends Component {
   constructor(props) {
@@ -69,11 +70,21 @@ class AppContainer extends Component {
           items: ['B', 'C'],
           result: 60
         },
-      ]
+      ],
+      data: ''
     }
 
     this.updateMenu = this.updateMenu.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
+  }
+
+
+  // Before render, sets state to json response from Crypto API
+  componentWillMount() {
+    let data = Crypto.getData();
+    this.setState({
+      data: data
+    })
   }
 
   // Updates active menu item for display in menu
@@ -106,6 +117,7 @@ class AppContainer extends Component {
         updateMenu={this.updateMenu}
         updateSearch={this.updateSearch}
         searchTerms={this.state.searchTerms}
+        data={this.state.data}
         />
     );
   }
