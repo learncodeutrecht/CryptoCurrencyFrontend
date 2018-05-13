@@ -29,7 +29,8 @@ export class Result extends React.Component {
         <thead>
       <tr>
         <th scope="col">Site</th>
-        <th scope="col">Result</th>
+        <th scope="col">Bid</th>
+        <th scope="col">Ask</th>
       </tr>
       </thead>
       <tbody>
@@ -39,6 +40,8 @@ export class Result extends React.Component {
                <th scope="row">{site}</th>
                <td><p>{this.props.dataArray[i]}</p>
                  </td>
+                 <td><p>{this.props.dataArray[i]}</p>
+                   </td>
              </tr>
            })
          }

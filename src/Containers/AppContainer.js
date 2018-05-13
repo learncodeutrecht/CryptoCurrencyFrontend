@@ -23,7 +23,7 @@ class AppContainer extends Component {
         }
       ],
       searchTerms: ['A', 'A'],
-      sites: ['Apples', 'Oranges', 'Bananas'],
+      sites: ['Bitstamp', 'Bittrex', 'Kraken'],
       results: [
         {
           site: 'Bananas',

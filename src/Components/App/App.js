@@ -19,9 +19,9 @@ export class App extends Component {
           <div className="App-title">CryptoCompare</div>
         </header>
         <p className="App-intro">
-          
+
           <br />
-          Pick two options
+          Pick two cryptocurrencies:
         </p>
         <div className="container">
           <Compare

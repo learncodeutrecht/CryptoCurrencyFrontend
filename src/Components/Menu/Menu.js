@@ -9,7 +9,6 @@ class Menu extends React.Component {
 
   handleClick(event) {
     this.props.updateMenu(this.props.menuID, event.target.name);
-
   }
 
   render() {
