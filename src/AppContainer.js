@@ -136,7 +136,7 @@ class AppContainer extends Component {
     }
     return finalData;
 }
-
+  // Generates menu content based on data in this.state.data using getData method
   generateMenus(numberOfMenus) {
     let menus = [];
     let currencies = this.getData("currencies");
@@ -160,7 +160,7 @@ class AppContainer extends Component {
   // Updates active menu item for display in menu
   updateMenu(id, active) {
     let menus = this.state.menus;
-    for (let i=0; i<this.state.menus.length; i++) {
+    for (let i = 0; i < this.state.menus.length; i++) {
       if (this.state.menus[i].id === id) {
         menus[i].active = active;
         this.setState({
