@@ -12,7 +12,7 @@ class AppContainer extends Component {
         {
           id: '1',
           items: ['A', 'B', 'C'],
-          active: 'A',
+          active: 'S',
           key: 'menu1'
         },
         {
@@ -76,14 +76,88 @@ class AppContainer extends Component {
 
     this.updateMenu = this.updateMenu.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
+    this.generateMenus = this.generateMenus.bind(this);
   }
 
 
   // Before render, sets state to json response from Crypto API
-  componentWillMount() {
-    let data = Crypto.getData();
+  // Uses this to assign menus
+  componentDidMount() {
+    Crypto.getData().then(data => {
+      this.setState({
+        data: data
+      });
+      this.generateMenus(2);
+    }
+
+
+
+  );
+
+  }
+
+  // Method that returns data type you want
+  // data: {website: [{rate1: '', rate2:'', etc}, {}], website: [{}, {}], website: [{}, {}]}
+  // keys: rate1, rate2, pairing, date, currencies(ARRAY)
+  getData(dataType) {
+    const data = this.state.data;
+    // Declare empty variable for data to return at end of this method
+    let finalData;
+
+    // Switch statement to handle different arguments and assign returnData
+    switch(dataType) {
+      case "currencies":
+        // Delare array of websites
+        // Example: [bitstamp, bittrex, kraken]
+        const websiteArray = Object.keys(data);
+        // Declare empty master array for currencies that will be filled by following code
+        let currencyArray = [];
+        // Cycle through each website
+        websiteArray.forEach(website => {
+          // Declare website value array
+          // Example: [{…}, {…}]
+          const websiteValueArray = data[website];
+          // Cycle through each dataObject of website value array
+          websiteValueArray.forEach(dataObject => {
+            // Declare currencies for single dataObject
+            // Example: ["BCH", "BTC"]
+            const currencies = dataObject.currencies;
+            // Cycle through each currency
+            currencies.forEach(currency => {
+              // Check if currency is already in master currencyArray
+              // Only add it to currencyArray if it is not there already
+              if (!currencyArray.includes(currency)) {
+                currencyArray.push(currency)
+              }
+            })
+          })
+        })
+        // At this point, currencyArray will be filled with all unique currencies
+        finalData = currencyArray;
+        break;
+      default:
+        finalData = data;
+    }
+    return finalData;
+}
+
+  generateMenus(numberOfMenus) {
+    let menus = [];
+    let currencies = this.getData("currencies");
+    let startingId = 1;
+    for (let i = 0; i < numberOfMenus; i++) {
+      const newMenu = {
+        id: startingId,
+        items: currencies,
+        active: currencies[0],
+        key: `menu${startingId}`
+      };
+      menus.push(newMenu);
+      startingId++;
+
+    };
     this.setState({
-      data: data
+      menus: menus
     })
   }
 
@@ -109,7 +183,9 @@ class AppContainer extends Component {
   }
 
   render() {
+
     return (
+
       <App
         menus={this.state.menus}
         sites={this.state.sites}
@@ -119,6 +195,7 @@ class AppContainer extends Component {
         searchTerms={this.state.searchTerms}
         data={this.state.data}
         />
+
     );
   }
 }

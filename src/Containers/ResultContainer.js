@@ -35,8 +35,6 @@ class ResultContainer extends Component {
         }
       }
     )
-    console.log(this.props.searchTerms)
-    console.log(dataArray)
     return dataArray;
   }
 

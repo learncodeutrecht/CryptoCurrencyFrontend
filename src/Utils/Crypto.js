@@ -1,8 +1,8 @@
 import 'whatwg-fetch';
 
 const Crypto = {};
-const baseUrl = 'http://188.166.66.158:80/compare/test_one';
-const starApi = 'https://swapi.co/api/people/1/'
+const baseUrl = 'http://206.189.12.80:8000/test_view/';
+// const starApi = 'https://swapi.co/api/people/1/'
 
 Crypto.getData = () => {
   const url = `${baseUrl}`;
@@ -12,8 +12,8 @@ Crypto.getData = () => {
       return new Promise(resolve => resolve([]));
     }
     return response.json().then(jsonResponse => {
-      console.log(jsonResponse.data);
-      return jsonResponse.data;
+      console.log(jsonResponse);
+      return jsonResponse;
     });
   });
 };
