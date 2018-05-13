@@ -1,8 +1,8 @@
 // This file contains the major data and needs to connect with the API.
 
 import React, { Component } from 'react';
-import { App } from '../Components/App/App';
-import Crypto from '../Utils/Crypto';
+import { App } from './App';
+import Crypto from '../src/Utils/Crypto';
 
 class AppContainer extends Component {
   constructor(props) {
@@ -11,14 +11,14 @@ class AppContainer extends Component {
       menus: [
         {
           id: '1',
-          items: ['A', 'B', 'C'],
-          active: 'S',
+          items: ['Default', 'B', 'C'],
+          active: 'Default',
           key: 'menu1'
         },
         {
           id: '2',
-          items: ['A', 'B', 'C'],
-          active: 'A',
+          items: ['Default', 'B', 'C'],
+          active: 'Default',
           key: 'menu2'
         }
       ],
@@ -89,11 +89,7 @@ class AppContainer extends Component {
       });
       this.generateMenus(2);
     }
-
-
-
   );
-
   }
 
   // Method that returns data type you want

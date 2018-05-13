@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Result } from '../Components/Result/Result';
+import { Result } from './Result';
 
 class ResultContainer extends Component {
   constructor(props) {

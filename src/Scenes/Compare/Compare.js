@@ -1,8 +1,8 @@
 import React from 'react';
 import './Compare.css';
 
-import Menu from '../Menu/Menu';
-import ResultContainer from '../../Containers/ResultContainer';
+import Menu from './Components/Menu/Menu';
+import ResultContainer from './Components/Result/ResultContainer';
 
 
 class Compare extends React.Component {
@@ -25,6 +25,7 @@ class Compare extends React.Component {
                 return (
                   <div key={menu.key} className="col">
                       <Menu
+                          menus={this.props.menus}
                           menuID={menu.id}
                           items={menu.items}
                           updateMenu={this.props.updateMenu}
@@ -36,7 +37,6 @@ class Compare extends React.Component {
               }
          </div>
         <ResultContainer
-          menus={this.props.menus}
           sites={this.props.sites}
           results={this.props.results}
           updateSearch={this.props.updateSearch}

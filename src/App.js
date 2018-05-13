@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Compare from '../Compare/Compare';
+import Compare from './Scenes/Compare/Compare';
 
 export class App extends Component {
   displayName: 'App';
